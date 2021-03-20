@@ -38,6 +38,24 @@ resource "kubernetes_deployment" "this" {
         automount_service_account_token = true
         restart_policy                  = "Always"
 
+        affinity {
+          pod_anti_affinity {
+            preferred_during_scheduling_ignored_during_execution {
+              weight = 100
+
+              pod_affinity_term {
+                label_selector {
+                  match_labels = {
+                    "key" = var.name
+                  }
+                }
+
+                topology_key = "kubernetes.io/hostname"
+              }
+            }
+          }
+        }
+        
         container {
           name                     = var.name
           image                    = "${var.ambassador_image}:${var.ambassador_image_tag}"
