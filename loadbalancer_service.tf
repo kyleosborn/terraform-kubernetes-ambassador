@@ -20,7 +20,7 @@ resource "kubernetes_service" "this_loadbalancer" {
       content {
         name        = port.value.name
         port        = port.value.port
-        target_port = port.value.target_port
+        target_port = port.value.container_port
       }
     }
 
