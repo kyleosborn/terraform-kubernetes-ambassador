@@ -118,13 +118,13 @@ variable "loadbalance_service_target_ports" {
       name           = "http"
       port           = "80"
       target_port    = "80"
-      container_port = "80"
+      container_port = "8080"
     },
     {
       name           = "https"
       port           = "443"
       target_port    = "443"
-      container_port = "443"
+      container_port = "8443"
     },
   ]
 }
