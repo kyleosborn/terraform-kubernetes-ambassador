@@ -19,7 +19,6 @@ resource "kubernetes_service" "this_loadbalancer" {
       for_each = var.loadbalance_service_target_ports
       content {
         name        = port.value.name
-        protocol    = "TCP"
         port        = port.value.port
         target_port = port.value.target_port
       }
