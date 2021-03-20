@@ -29,7 +29,7 @@ resource "kubernetes_service" "this_loadbalancer" {
     }
 
     session_affinity = "None"
-    external_traffic_policy = "Local"
+    # external_traffic_policy = "Local"
   }
 
   depends_on = [kubernetes_namespace.this]
